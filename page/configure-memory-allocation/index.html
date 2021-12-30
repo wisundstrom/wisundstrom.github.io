@@ -9,23 +9,23 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>YARN :: ASR Cluster</title>
+    <title>Memory Allocation :: ASR Cluster</title>
 
     
-    <link href="/css/nucleus.css?1640823814" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1640823814" rel="stylesheet">
-    <link href="/css/hybrid.css?1640823814" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1640823814" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1640823814" rel="stylesheet">
-    <link href="/css/auto-complete.css?1640823814" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1640823814" rel="stylesheet">
-    <link href="/css/theme.css?1640823814" rel="stylesheet">
-    <link href="/css/tabs.css?1640823814" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1640823814" rel="stylesheet">
+    <link href="/css/nucleus.css?1640824985" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1640824985" rel="stylesheet">
+    <link href="/css/hybrid.css?1640824985" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1640824985" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1640824985" rel="stylesheet">
+    <link href="/css/auto-complete.css?1640824985" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1640824985" rel="stylesheet">
+    <link href="/css/theme.css?1640824985" rel="stylesheet">
+    <link href="/css/tabs.css?1640824985" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1640824985" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1640823814"></script>
+    <script src="/js/jquery-3.3.1.min.js?1640824985"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/yarn/">
+  <body class="" data-url="/pages/configure-memory-allocation/">
     <nav id="sidebar" class="">
 
 
@@ -135,14 +135,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1640823814"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1640823814"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1640824985"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1640824985"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/example.org\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1640823814"></script>
+<script type="text/javascript" src="/js/search.js?1640824985"></script>
 
     
   </div>
@@ -238,7 +238,7 @@
  
   
     
-      <li data-nav-id="/pages/configure-memory-allocation/" title="Memory Allocation" class="dd-item ">
+      <li data-nav-id="/pages/configure-memory-allocation/" title="Memory Allocation" class="dd-item active">
         <a href="/pages/configure-memory-allocation/">
         Memory Allocation
         
@@ -301,7 +301,7 @@
  
   
     
-      <li data-nav-id="/pages/yarn/" title="YARN" class="dd-item active">
+      <li data-nav-id="/pages/yarn/" title="YARN" class="dd-item ">
         <a href="/pages/yarn/">
         YARN
         
@@ -369,7 +369,7 @@
             
           
           
-            <a href='/'>ASR Cluster Wiki ALPHA</a> > <a href='/pages/'>Main</a> > YARN
+            <a href='/'>ASR Cluster Wiki ALPHA</a> > <a href='/pages/'>Main</a> > Memory Allocation
           
         
           
@@ -384,10 +384,12 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#monitoring-yarn-jobs">Monitoring YARN Jobs</a></li>
-    <li><a href="#demo-yarn-job">Demo YARN Job</a>
+    <li>
       <ul>
-        <li><a href="#todo-figure-out-port-forwarding-etc">ToDo: figure out port forwarding etc</a></li>
+        <li><a href="#guide-excerpt">Guide Excerpt</a></li>
+        <li><a href="#sample-memory-config-2gb">Sample Memory Config 2gb</a></li>
+        <li><a href="#set-memorry-config">Set Memorry Config</a></li>
+        <li><a href="#duplicate-config">Duplicate Config</a></li>
       </ul>
     </li>
   </ul>
@@ -407,7 +409,7 @@
           
             <h1>
               
-              YARN
+              Memory Allocation
             </h1>
           
 
@@ -415,29 +417,119 @@
 
 
 <p>[[Linode  Basic 3 Node Main]]</p>
-<p>HDFS is just a distributed filesystem, so it does not control how any tasks are actually completed in the cluster. The YARN framework is what we use to run and schedule tasks in the cluster.
-Similarly to HDFS, we can start and stop YARN (<em>as the <code>Hadoop</code> user</em>) with the following:</p>
-<pre tabindex="0"><code>start-yarn.sh
-stop-yarn.sh
-</code></pre><p>You can also check that this is working with <code>jps</code>, which should now show <code>Resource Manager</code> running on <code>node-master</code> and <code>NodeManager</code> running on <code>node1</code> and <code>node2</code></p>
-<h2 id="monitoring-yarn-jobs">Monitoring YARN Jobs</h2>
-<p>Info on running nodes:</p>
-<pre tabindex="0"><code>yarn node -list
-</code></pre><p>Info on running applications:</p>
-<pre tabindex="0"><code>yarn application -list
-</code></pre><p>The YARN webui is available at <code>http://node-master-IP:8088</code></p>
-<h2 id="demo-yarn-job">Demo YARN Job</h2>
-<p>There are some mapreduce jars included with Hadoop, so we can use those to test the YARN scheduling process before moving on to [[Spark]].</p>
-<p>The following command submits a wordcount program to YARN.</p>
+<p>This page contains text and images copy and pasted from the linode guide here: [[Linode  Basic 3 Node Main#Linode Hadoop Guide]]</p>
+<hr>
+<h3 id="guide-excerpt">Guide Excerpt</h3>
+<p>** The Memory Allocation Properties **</p>
+<p>A YARN job is executed with two kind of resources:</p>
 <ul>
-<li><code>output</code> is the output file name/location</li>
-<li><code>&quot;books/*&quot;</code> reads in the files in hadoop at <code>~/books/</code>, where there should be some project gutenberg test files. See: [[HDFS#Test Data]]]</li>
+<li>An <em>Application Master</em> (AM) is responsible for monitoring the application and coordinating distributed executors in the cluster.</li>
+<li>Some executors that are created by the AM actually run the job. For a MapReduce jobs, they’ll perform map or reduce operation, in parallel.</li>
 </ul>
-<pre tabindex="0"><code>yarn jar home/hadoop/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.4.jar wordcount &quot;books/*&quot; output
-</code></pre><h3 id="todo-figure-out-port-forwarding-etc">ToDo: figure out port forwarding etc</h3>
-<p>It&rsquo;s going to take some fiddling to get the tracker working and to get the links to the spark/mapreduce application pages working.
-Maybe set up nginx reverse proxy on edge-node to handle all this crap, IDK
-check out linode security stuff, etc.</p>
+<p>Both are run in <em>containers</em> on worker nodes. Each worker node runs a <em>NodeManager</em> daemon that’s responsible for container creation on the node. The whole cluster is managed by a <em>ResourceManager</em> that schedules container allocation on all the worker-nodes, depending on capacity requirements and current charge.</p>
+<p>Four types of resource allocations need to be configured properly for the cluster to work. These are:</p>
+<ol>
+<li>
+<p>How much memory can be allocated for YARN containers on a single node. This limit should be higher than all the others; otherwise, container allocation will be rejected and applications will fail. However, it should not be the entire amount of RAM on the node.</p>
+<p>This value is configured in <code>yarn-site.xml</code> with <code>yarn.nodemanager.resource.memory-mb</code>.</p>
+</li>
+<li>
+<p>How much memory a single container can consume and the minimum memory allocation allowed. A container will never be bigger than the maximum, or else allocation will fail and will always be allocated as a multiple of the minimum amount of RAM.</p>
+<p>Those values are configured in <code>yarn-site.xml</code> with <code>yarn.scheduler.maximum-allocation-mb</code> and <code>yarn.scheduler.minimum-allocation-mb</code>.</p>
+</li>
+<li>
+<p>How much memory will be allocated to the ApplicationMaster. This is a constant value that should fit in the container maximum size.</p>
+<p>This is configured in <code>mapred-site.xml</code> with <code>yarn.app.mapreduce.am.resource.mb</code>.</p>
+</li>
+<li>
+<p>How much memory will be allocated to each map or reduce operation. This should be less than the maximum size.</p>
+<p>This is configured in <code>mapred-site.xml</code> with properties <code>mapreduce.map.memory.mb</code> and <code>mapreduce.reduce.memory.mb</code>.</p>
+</li>
+</ol>
+<p>The relationship between all those properties can be seen in the following figure:
+![[Pasted image 20211210134601.png]]</p>
+<h3 id="sample-memory-config-2gb">Sample Memory Config 2gb</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>yarn.nodemanager.resource.memory-mb</td>
+<td>1536</td>
+</tr>
+<tr>
+<td>yarn.scheduler.maximum-allocation-mb</td>
+<td>1536</td>
+</tr>
+<tr>
+<td>yarn.scheduler.minimum-allocation-mb</td>
+<td>128</td>
+</tr>
+<tr>
+<td>yarn.app.mapreduce.am.resource.mb</td>
+<td>512</td>
+</tr>
+<tr>
+<td>mapreduce.map.memory.mb</td>
+<td>256</td>
+</tr>
+<tr>
+<td>mapreduce.reduce.memory.mb</td>
+<td>256</td>
+</tr>
+</tbody>
+</table>
+<h3 id="set-memorry-config">Set Memorry Config</h3>
+<p>These config files will implement the settings in [[#Sample Memory Config 2gb]]</p>
+<ol>
+<li>Edit <code>/home/hadoop/hadoop/etc/hadoop/yarn-site.xml</code> and add the following lines:</li>
+</ol>
+<pre tabindex="0"><code>&lt;configuration&gt;
+	&lt;property&gt;
+		&lt;name&gt;yarn.nodemanager.resource.memory-mb&lt;/name&gt;
+		&lt;value&gt;1536&lt;/value&gt;
+	&lt;/property&gt;
+	
+	&lt;property&gt;
+		&lt;name&gt;yarn.scheduler.maximum-allocation-mb&lt;/name&gt;
+		&lt;value&gt;1536&lt;/value&gt;
+	&lt;/property&gt;
+	
+	&lt;property&gt;
+		&lt;name&gt;yarn.scheduler.minimum-allocation-mb&lt;/name&gt;
+		&lt;value&gt;128&lt;/value&gt;
+	&lt;/property&gt;
+	
+	&lt;property&gt;
+		&lt;name&gt;yarn.nodemanager.vmem-check-enabled&lt;/name&gt;
+		&lt;value&gt;false&lt;/value&gt;
+	&lt;/property&gt;
+	
+&lt;/configuration&gt;
+</code></pre><ol start="2">
+<li>Edit <code>/home/hadoop/hadoop/etc/hadoop/mapred-site.xml</code> and add the following lines:</li>
+</ol>
+<pre tabindex="0"><code>&lt;configuration&gt;
+	&lt;property&gt;
+		&lt;name&gt;yarn.app.mapreduce.am.resource.mb&lt;/name&gt;
+		&lt;value&gt;512&lt;/value&gt;
+	&lt;/property&gt;
+	
+	&lt;property&gt;
+		&lt;name&gt;mapreduce.map.memory.mb&lt;/name&gt;
+		&lt;value&gt;256&lt;/value&gt;
+	&lt;/property&gt;
+	
+	&lt;property&gt;
+		&lt;name&gt;mapreduce.reduce.memory.mb&lt;/name&gt;
+		&lt;value&gt;256&lt;/value&gt;
+	&lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre><h3 id="duplicate-config">Duplicate Config</h3>
 
 
 <footer class="footline">
@@ -524,6 +616,26 @@ check out linode security stuff, etc.</p>
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
                 
                 
 
@@ -555,23 +667,6 @@ check out linode security stuff, etc.</p>
             
             
                 
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
@@ -596,10 +691,10 @@ check out linode security stuff, etc.</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/pages/multiple-ssh-forwards-snippit/" title="SSH Forwards"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/pages/master-node-config/" title="Master Node Configuration"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/pages/hdfs/" title="HDFS" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/pages/spark/" title="Spark" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -609,19 +704,19 @@ check out linode security stuff, etc.</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1640823814"></script>
-    <script src="/js/perfect-scrollbar.min.js?1640823814"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1640823814"></script>
-    <script src="/js/jquery.sticky.js?1640823814"></script>
-    <script src="/js/featherlight.min.js?1640823814"></script>
-    <script src="/js/highlight.pack.js?1640823814"></script>
+    <script src="/js/clipboard.min.js?1640824985"></script>
+    <script src="/js/perfect-scrollbar.min.js?1640824985"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1640824985"></script>
+    <script src="/js/jquery.sticky.js?1640824985"></script>
+    <script src="/js/featherlight.min.js?1640824985"></script>
+    <script src="/js/highlight.pack.js?1640824985"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1640823814"></script>
-    <script src="/js/learn.js?1640823814"></script>
-    <script src="/js/hugo-learn.js?1640823814"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1640824985"></script>
+    <script src="/js/learn.js?1640824985"></script>
+    <script src="/js/hugo-learn.js?1640824985"></script>
     
         
-            <script src="/mermaid/mermaid.js?1640823814"></script>
+            <script src="/mermaid/mermaid.js?1640824985"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

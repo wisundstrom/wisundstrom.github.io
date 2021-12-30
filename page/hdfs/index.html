@@ -9,23 +9,23 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Spark :: ASR Cluster</title>
+    <title>HDFS :: ASR Cluster</title>
 
     
-    <link href="/css/nucleus.css?1640823814" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1640823814" rel="stylesheet">
-    <link href="/css/hybrid.css?1640823814" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1640823814" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1640823814" rel="stylesheet">
-    <link href="/css/auto-complete.css?1640823814" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1640823814" rel="stylesheet">
-    <link href="/css/theme.css?1640823814" rel="stylesheet">
-    <link href="/css/tabs.css?1640823814" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1640823814" rel="stylesheet">
+    <link href="/css/nucleus.css?1640824985" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1640824985" rel="stylesheet">
+    <link href="/css/hybrid.css?1640824985" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1640824985" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1640824985" rel="stylesheet">
+    <link href="/css/auto-complete.css?1640824985" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1640824985" rel="stylesheet">
+    <link href="/css/theme.css?1640824985" rel="stylesheet">
+    <link href="/css/tabs.css?1640824985" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1640824985" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1640823814"></script>
+    <script src="/js/jquery-3.3.1.min.js?1640824985"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/spark/">
+  <body class="" data-url="/pages/hdfs/">
     <nav id="sidebar" class="">
 
 
@@ -135,14 +135,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1640823814"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1640823814"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1640824985"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1640824985"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/example.org\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1640823814"></script>
+<script type="text/javascript" src="/js/search.js?1640824985"></script>
 
     
   </div>
@@ -196,7 +196,7 @@
  
   
     
-      <li data-nav-id="/pages/hdfs/" title="HDFS" class="dd-item ">
+      <li data-nav-id="/pages/hdfs/" title="HDFS" class="dd-item active">
         <a href="/pages/hdfs/">
         HDFS
         
@@ -259,7 +259,7 @@
  
   
     
-      <li data-nav-id="/pages/spark/" title="Spark" class="dd-item active">
+      <li data-nav-id="/pages/spark/" title="Spark" class="dd-item ">
         <a href="/pages/spark/">
         Spark
         
@@ -369,7 +369,7 @@
             
           
           
-            <a href='/'>ASR Cluster Wiki ALPHA</a> > <a href='/pages/'>Main</a> > Spark
+            <a href='/'>ASR Cluster Wiki ALPHA</a> > <a href='/pages/'>Main</a> > HDFS
           
         
           
@@ -382,7 +382,20 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#hdfs-web-ui">HDFS Web UI</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#note-this-is-probably-worth-setting-up-in-the-future-multiple-ssh-forwards-snippit">Note: this is probably worth setting up in the future: [[Multiple SSH Forwards Snippit]]</a></li>
+        <li><a href="#hdfs-shell-docshttpshadoopapacheorgdocscurrenthadoop-project-disthadoop-commonfilesystemshellhtml"><a href="https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html">HDFS shell docs</a></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -398,13 +411,111 @@
           
             <h1>
               
-              Spark
+              HDFS
             </h1>
           
 
         
 
 
+<p>[[Linode  Basic 3 Node Main]]</p>
+<h1 id="starting-hdfs">Starting HDFS</h1>
+<p>The following scripts can are used to stop and start the name and data-node processes on the master and the nodes.</p>
+<p><em><strong>You must be logged in as the <code>Hadoop</code> user to run these scripts</strong></em></p>
+<ul>
+<li><code>start-dfs.sh</code></li>
+<li><code>stop-dfs.sh</code></li>
+</ul>
+<p>You can confirm this worked by running <code>jps</code> on <strong>node-master</strong>, which should show <code>NameNode</code> and <code>SecondaryNameNode</code> entries:</p>
+<pre tabindex="0"><code>21922 Jps 
+21603 NameNode 
+21787 SecondaryNameNode
+</code></pre><p>and on <strong>node1</strong> and <strong>node2</strong> <code>jps</code> should show <code>DataNode</code> entries:</p>
+<pre tabindex="0"><code>19728 DataNode
+19819 Jps
+</code></pre><h1 id="monitoring-the-hdfs-cluster">Monitoring the HDFS Cluster</h1>
+<p><em>All of these monitoring steps need to be run from <code>node-master</code> as  the user <code>Hadoop</code></em></p>
+<p>The command <code>hdfs dfsadmin -report</code> will print out information to the console about the capactiy and usage of the entire cluster and each running datanode</p>
+<pre tabindex="0"><code>[hadoop@node-master ~]$ hdfs dfsadmin -report
+Configured Capacity: 104498257920 (97.32 GB)
+Present Capacity: 92369047552 (86.03 GB)
+DFS Remaining: 92366458880 (86.02 GB)
+DFS Used: 2588672 (2.47 MB)
+DFS Used%: 0.00%
+Replicated Blocks:
+        Under replicated blocks: 0
+        Blocks with corrupt replicas: 0
+        Missing blocks: 0
+        Missing blocks (with replication factor 1): 0
+        Low redundancy blocks with highest priority to recover: 0
+        Pending deletion blocks: 0
+Erasure Coded Block Groups:
+        Low redundancy block groups: 0
+        Block groups with corrupt internal blocks: 0
+        Missing block groups: 0
+        Low redundancy blocks with highest priority to recover: 0
+        Pending deletion blocks: 0
+
+-------------------------------------------------
+Live datanodes (2):
+
+Name: 172.***.***.***:9866 (node2)
+Hostname: node2
+Decommission Status : Normal
+Configured Capacity: 52249128960 (48.66 GB)
+DFS Used: 1294336 (1.23 MB)
+Non DFS Used: 3389657088 (3.16 GB)
+DFS Remaining: 46183981056 (43.01 GB)
+DFS Used%: 0.00%
+DFS Remaining%: 88.39%
+Configured Cache Capacity: 0 (0 B)
+Cache Used: 0 (0 B)
+Cache Remaining: 0 (0 B)
+Cache Used%: 100.00%
+Cache Remaining%: 0.00%
+Xceivers: 1
+Last contact: Wed Dec 29 13:34:54 UTC 2021
+Last Block Report: Wed Dec 29 08:03:06 UTC 2021
+Num of Blocks: 3
+
+
+Name: 172.***.***.***:9866 (node1)
+Hostname: node1
+Decommission Status : Normal
+Configured Capacity: 52249128960 (48.66 GB)
+DFS Used: 1294336 (1.23 MB)
+Non DFS Used: 3391160320 (3.16 GB)
+DFS Remaining: 46182477824 (43.01 GB)
+DFS Used%: 0.00%
+DFS Remaining%: 88.39%
+Configured Cache Capacity: 0 (0 B)
+Cache Used: 0 (0 B)
+Cache Remaining: 0 (0 B)
+Cache Used%: 100.00%
+Cache Remaining%: 0.00%
+Xceivers: 1
+Last contact: Wed Dec 29 13:34:52 UTC 2021
+Last Block Report: Wed Dec 29 11:33:10 UTC 2021
+Num of Blocks: 3
+</code></pre><h2 id="hdfs-web-ui">HDFS Web UI</h2>
+<p>Because the hadoop cluster is not broadcasting the web ui on the open internet, we need to forward the appropriate ports when we log in via <code>ssh</code> to be able to access the web ui.</p>
+<pre tabindex="0"><code>ssh -L 9870:node-master:9870 node-master
+</code></pre><p>The above command will bind the port for the hadoop web ui to <code>localhost:9870</code>. This UI contains similar information to the <code>hdfs dfsadmin -report</code> commnad, with some additional features.</p>
+<h1 id="test-data">Test Data</h1>
+<p>The commands below can be used to download some books from project gutenburg that we can use to test HDFS and make sure it is functioning correcctly</p>
+<pre tabindex="0"><code>hdfs dfs -mkdir books
+cd /home/hadoop
+wget -O alice.txt https://www.gutenberg.org/files/11/11-0.txt
+wget -O holmes.txt https://www.gutenberg.org/files/1661/1661-0.txt
+wget -O frankenstein.txt https://www.gutenberg.org/files/84/84-0.txt
+hdfs dfs -put alice.txt holmes.txt frankenstein.txt books
+</code></pre><p>you can look at the <code>books</code> directory with</p>
+<ul>
+<li><code>hdfs dfs -ls books</code></li>
+</ul>
+<p>After moving these files into HDFS, you can confirm everything is working as expected with <code>hdfs dfsadmin -report</code> or by using the web UI at port <code>9870</code></p>
+<h3 id="note-this-is-probably-worth-setting-up-in-the-future-multiple-ssh-forwards-snippit">Note: this is probably worth setting up in the future: [[Multiple SSH Forwards Snippit]]</h3>
+<h3 id="hdfs-shell-docshttpshadoopapacheorgdocscurrenthadoop-project-disthadoop-commonfilesystemshellhtml"><a href="https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html">HDFS shell docs</a></h3>
 
 
 <footer class="footline">
@@ -456,6 +567,23 @@
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                         
                         
                     
@@ -506,26 +634,6 @@
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -566,10 +674,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/pages/configure-memory-allocation/" title="Memory Allocation"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/pages/" title="Main"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/pages/multiple-ssh-forwards-snippit/" title="SSH Forwards" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/pages/master-node-config/" title="Master Node Configuration" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -579,19 +687,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1640823814"></script>
-    <script src="/js/perfect-scrollbar.min.js?1640823814"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1640823814"></script>
-    <script src="/js/jquery.sticky.js?1640823814"></script>
-    <script src="/js/featherlight.min.js?1640823814"></script>
-    <script src="/js/highlight.pack.js?1640823814"></script>
+    <script src="/js/clipboard.min.js?1640824985"></script>
+    <script src="/js/perfect-scrollbar.min.js?1640824985"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1640824985"></script>
+    <script src="/js/jquery.sticky.js?1640824985"></script>
+    <script src="/js/featherlight.min.js?1640824985"></script>
+    <script src="/js/highlight.pack.js?1640824985"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1640823814"></script>
-    <script src="/js/learn.js?1640823814"></script>
-    <script src="/js/hugo-learn.js?1640823814"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1640824985"></script>
+    <script src="/js/learn.js?1640824985"></script>
+    <script src="/js/hugo-learn.js?1640824985"></script>
     
         
-            <script src="/mermaid/mermaid.js?1640823814"></script>
+            <script src="/mermaid/mermaid.js?1640824985"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

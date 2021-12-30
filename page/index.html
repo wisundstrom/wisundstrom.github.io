@@ -9,23 +9,23 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Memory Allocation :: ASR Cluster</title>
+    <title>Main :: ASR Cluster</title>
 
     
-    <link href="/css/nucleus.css?1640823814" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1640823814" rel="stylesheet">
-    <link href="/css/hybrid.css?1640823814" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1640823814" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1640823814" rel="stylesheet">
-    <link href="/css/auto-complete.css?1640823814" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1640823814" rel="stylesheet">
-    <link href="/css/theme.css?1640823814" rel="stylesheet">
-    <link href="/css/tabs.css?1640823814" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1640823814" rel="stylesheet">
+    <link href="/css/nucleus.css?1640824985" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1640824985" rel="stylesheet">
+    <link href="/css/hybrid.css?1640824985" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1640824985" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1640824985" rel="stylesheet">
+    <link href="/css/auto-complete.css?1640824985" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1640824985" rel="stylesheet">
+    <link href="/css/theme.css?1640824985" rel="stylesheet">
+    <link href="/css/tabs.css?1640824985" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1640824985" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1640823814"></script>
+    <script src="/js/jquery-3.3.1.min.js?1640824985"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/configure-memory-allocation/">
+  <body class="" data-url="/pages/">
     <nav id="sidebar" class="">
 
 
@@ -135,14 +135,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1640823814"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1640823814"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1640824985"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1640824985"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/example.org\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1640823814"></script>
+<script type="text/javascript" src="/js/search.js?1640824985"></script>
 
     
   </div>
@@ -171,7 +171,7 @@
     
     <li data-nav-id="/pages/" title="Main" class="dd-item
         parent
-        
+        active
         
         ">
       <a href="/pages/">
@@ -238,7 +238,7 @@
  
   
     
-      <li data-nav-id="/pages/configure-memory-allocation/" title="Memory Allocation" class="dd-item active">
+      <li data-nav-id="/pages/configure-memory-allocation/" title="Memory Allocation" class="dd-item ">
         <a href="/pages/configure-memory-allocation/">
         Memory Allocation
         
@@ -365,13 +365,7 @@
             
           
           
-            
-            
-          
-          
-            <a href='/'>ASR Cluster Wiki ALPHA</a> > <a href='/pages/'>Main</a> > Memory Allocation
-          
-        
+            <a href='/'>ASR Cluster Wiki ALPHA</a> > Main
           
         
           
@@ -384,14 +378,23 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#todo">Todo:</a></li>
+    <li><a href="#linode-hadoop-guide">Linode Hadoop Guide</a></li>
+    <li><a href="#basic-cluster-info">Basic Cluster Info</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#etchosts">/etc/hosts</a></li>
+    <li><a href="#accounts">Accounts</a></li>
+    <li><a href="#ssh">SSH</a></li>
+    <li><a href="#logs">Logs</a>
       <ul>
-        <li><a href="#guide-excerpt">Guide Excerpt</a></li>
-        <li><a href="#sample-memory-config-2gb">Sample Memory Config 2gb</a></li>
-        <li><a href="#set-memorry-config">Set Memorry Config</a></li>
-        <li><a href="#duplicate-config">Duplicate Config</a></li>
+        <li><a href="#networking-update-122921">Networking UPDATE 12/29/21</a></li>
       </ul>
     </li>
+    <li><a href="#firewall">Firewall</a></li>
+    <li><a href="#hdfs-web-ui">HDFS Web UI</a></li>
+    <li><a href="#yarn-web-ui">YARN Web UI</a></li>
   </ul>
 </nav>
     </div>
@@ -409,130 +412,175 @@
           
             <h1>
               
-              Memory Allocation
+              Main
             </h1>
           
 
         
 
 
-<p>[[Linode  Basic 3 Node Main]]</p>
-<p>This page contains text and images copy and pasted from the linode guide here: [[Linode  Basic 3 Node Main#Linode Hadoop Guide]]</p>
-<hr>
-<h3 id="guide-excerpt">Guide Excerpt</h3>
-<p>** The Memory Allocation Properties **</p>
-<p>A YARN job is executed with two kind of resources:</p>
+
+	<h1 id="three-node-hadoop">Three Node Hadoop</h1>
 <ul>
-<li>An <em>Application Master</em> (AM) is responsible for monitoring the application and coordinating distributed executors in the cluster.</li>
-<li>Some executors that are created by the AM actually run the job. For a MapReduce jobs, they’ll perform map or reduce operation, in parallel.</li>
+<li>[[Master Node Config]]</li>
+<li>[[HDFS]]</li>
+<li>[[YARN]]</li>
 </ul>
-<p>Both are run in <em>containers</em> on worker nodes. Each worker node runs a <em>NodeManager</em> daemon that’s responsible for container creation on the node. The whole cluster is managed by a <em>ResourceManager</em> that schedules container allocation on all the worker-nodes, depending on capacity requirements and current charge.</p>
-<p>Four types of resource allocations need to be configured properly for the cluster to work. These are:</p>
-<ol>
-<li>
-<p>How much memory can be allocated for YARN containers on a single node. This limit should be higher than all the others; otherwise, container allocation will be rejected and applications will fail. However, it should not be the entire amount of RAM on the node.</p>
-<p>This value is configured in <code>yarn-site.xml</code> with <code>yarn.nodemanager.resource.memory-mb</code>.</p>
+<h2 id="todo">Todo:</h2>
+<ul>
+<li>setup and run Yarn
+<ul>
+<li>possibly set up VLAN first and then go back to YARN, IDK</li>
+</ul>
 </li>
-<li>
-<p>How much memory a single container can consume and the minimum memory allocation allowed. A container will never be bigger than the maximum, or else allocation will fail and will always be allocated as a multiple of the minimum amount of RAM.</p>
-<p>Those values are configured in <code>yarn-site.xml</code> with <code>yarn.scheduler.maximum-allocation-mb</code> and <code>yarn.scheduler.minimum-allocation-mb</code>.</p>
+<li>set up nice ssh forwarding for web apps: [[Multiple SSH Forwards Snippit]]</li>
+<li>set up a vlan:[[#Networking UPDATE 12 29 21]]</li>
+<li>Set up <a href="https://www.linode.com/docs/products/networking/cloud-firewall/">cloud firewall</a></li>
+</ul>
+<p>Next big step:</p>
+<ul>
+<li><a href="https://www.linode.com/docs/guides/install-configure-run-spark-on-top-of-hadoop-yarn-cluster/">Install Spark on top of the Yarn cluster</a></li>
+</ul>
+<p>Longer Term:</p>
+<ul>
+<li>play with optimizing memory: [[Configure Memory Allocation]]</li>
+<li>investigate/learn Linode CLI</li>
+<li>create re-usable node images</li>
+<li>Set up VPN connection to the cluster VLAN
+<ul>
+<li>probably wireguard, but idk</li>
+</ul>
 </li>
-<li>
-<p>How much memory will be allocated to the ApplicationMaster. This is a constant value that should fit in the container maximum size.</p>
-<p>This is configured in <code>mapred-site.xml</code> with <code>yarn.app.mapreduce.am.resource.mb</code>.</p>
-</li>
-<li>
-<p>How much memory will be allocated to each map or reduce operation. This should be less than the maximum size.</p>
-<p>This is configured in <code>mapred-site.xml</code> with properties <code>mapreduce.map.memory.mb</code> and <code>mapreduce.reduce.memory.mb</code>.</p>
-</li>
-</ol>
-<p>The relationship between all those properties can be seen in the following figure:
-![[Pasted image 20211210134601.png]]</p>
-<h3 id="sample-memory-config-2gb">Sample Memory Config 2gb</h3>
+</ul>
+<hr>
+<h2 id="linode-hadoop-guide">Linode Hadoop Guide</h2>
+<p><a href="https://www.linode.com/docs/guides/how-to-install-and-set-up-hadoop-cluster/">This is the Linode Hadoop setup guide I am using</a></p>
+<h2 id="basic-cluster-info">Basic Cluster Info</h2>
+<p><strong>Cluster details as of 12/29/21</strong></p>
+<ul>
+<li>Hosted on <a href="https://www.linode.com">Linode</a></li>
+<li>2 Nodes, 1 Master</li>
+<li>All servers have 1 core, 3gb memory, 50g storage</li>
+<li>All servers are running CentOS 7</li>
+</ul>
+<h1 id="quick-reference">Quick Reference</h1>
+<h2 id="etchosts">/etc/hosts</h2>
 <table>
 <thead>
 <tr>
-<th>Property</th>
-<th>Value</th>
+<th>Private IP</th>
+<th>Server Name</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>yarn.nodemanager.resource.memory-mb</td>
-<td>1536</td>
+<td>172.104.18.216</td>
+<td>node-master</td>
 </tr>
 <tr>
-<td>yarn.scheduler.maximum-allocation-mb</td>
-<td>1536</td>
+<td>172.104.18.250</td>
+<td>node1</td>
 </tr>
 <tr>
-<td>yarn.scheduler.minimum-allocation-mb</td>
-<td>128</td>
-</tr>
-<tr>
-<td>yarn.app.mapreduce.am.resource.mb</td>
-<td>512</td>
-</tr>
-<tr>
-<td>mapreduce.map.memory.mb</td>
-<td>256</td>
-</tr>
-<tr>
-<td>mapreduce.reduce.memory.mb</td>
-<td>256</td>
+<td>172.104.18.234</td>
+<td>node2</td>
 </tr>
 </tbody>
 </table>
-<h3 id="set-memorry-config">Set Memorry Config</h3>
-<p>These config files will implement the settings in [[#Sample Memory Config 2gb]]</p>
-<ol>
-<li>Edit <code>/home/hadoop/hadoop/etc/hadoop/yarn-site.xml</code> and add the following lines:</li>
-</ol>
-<pre tabindex="0"><code>&lt;configuration&gt;
-	&lt;property&gt;
-		&lt;name&gt;yarn.nodemanager.resource.memory-mb&lt;/name&gt;
-		&lt;value&gt;1536&lt;/value&gt;
-	&lt;/property&gt;
-	
-	&lt;property&gt;
-		&lt;name&gt;yarn.scheduler.maximum-allocation-mb&lt;/name&gt;
-		&lt;value&gt;1536&lt;/value&gt;
-	&lt;/property&gt;
-	
-	&lt;property&gt;
-		&lt;name&gt;yarn.scheduler.minimum-allocation-mb&lt;/name&gt;
-		&lt;value&gt;128&lt;/value&gt;
-	&lt;/property&gt;
-	
-	&lt;property&gt;
-		&lt;name&gt;yarn.nodemanager.vmem-check-enabled&lt;/name&gt;
-		&lt;value&gt;false&lt;/value&gt;
-	&lt;/property&gt;
-	
-&lt;/configuration&gt;
-</code></pre><ol start="2">
-<li>Edit <code>/home/hadoop/hadoop/etc/hadoop/mapred-site.xml</code> and add the following lines:</li>
-</ol>
-<pre tabindex="0"><code>&lt;configuration&gt;
-	&lt;property&gt;
-		&lt;name&gt;yarn.app.mapreduce.am.resource.mb&lt;/name&gt;
-		&lt;value&gt;512&lt;/value&gt;
-	&lt;/property&gt;
-	
-	&lt;property&gt;
-		&lt;name&gt;mapreduce.map.memory.mb&lt;/name&gt;
-		&lt;value&gt;256&lt;/value&gt;
-	&lt;/property&gt;
-	
-	&lt;property&gt;
-		&lt;name&gt;mapreduce.reduce.memory.mb&lt;/name&gt;
-		&lt;value&gt;256&lt;/value&gt;
-	&lt;/property&gt;
-&lt;/configuration&gt;
-</code></pre><h3 id="duplicate-config">Duplicate Config</h3>
+<h2 id="accounts">Accounts</h2>
+<table>
+<thead>
+<tr>
+<th>Account</th>
+<th>Use</th>
+<th>Password</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>root</td>
+<td>root access</td>
+<td>????????????</td>
+</tr>
+<tr>
+<td>will</td>
+<td>will&rsquo;s account</td>
+<td>????????????</td>
+</tr>
+<tr>
+<td>asr_user</td>
+<td>generic test account</td>
+<td><strong>TBD</strong></td>
+</tr>
+<tr>
+<td>hadoop</td>
+<td>hadoop daemons</td>
+<td>????????????</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ssh">SSH</h2>
+<ul>
+<li>SSH configs located at
+<ul>
+<li><code>/etc/ssh/sshd_config</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="logs">Logs</h2>
+<ul>
+<li>Hadoop/Yarn logs for each server can be found here:
+<ul>
+<li><code>/home/hadoop/hadoop/logs</code></li>
+<li>Default is only <code>Hadoop</code> user/group has permissions</li>
+</ul>
+</li>
+<li>DataNode and NodeManager logs are specific to <code>node1</code>, <code>node2</code>, etc.</li>
+<li>NameNode and ResourceManager logs are on the <code>node-master</code> server</li>
+</ul>
+<h3 id="networking-update-122921">Networking UPDATE 12/29/21</h3>
+<p>I think it probably makes sense to set up a vlan with the three nodes in it so that we can let them all talk to each other as much as they want.</p>
+<ul>
+<li><a href="https://www.linode.com/docs/products/networking/vlans/">Linode VLANs</a></li>
+</ul>
+<h2 id="firewall">Firewall</h2>
+<p>Leaving this in for reference</p>
+<ul>
+<li>Since</li>
+<li>node-master needs
+<ul>
+<li>port 9000 open to talk to DataNodes</li>
+<li>port 8031 open to talk to NodeManagers</li>
+</ul>
+</li>
+</ul>
+<pre tabindex="0"><code>sudo firewall-cmd --zone=public --add-port=9000/tcp --permanent
+sudo firewall-cmd --zone=public --add-port=8031/tcp --permanent
+sudo firewall-cmd --reload
+</code></pre><ul>
+<li>node1, node2 need
+<ul>
+<li>port 9866 open to receive data from namenode</li>
+<li></li>
+</ul>
+</li>
+</ul>
+<pre tabindex="0"><code>sudo firewall-cmd --zone=public --add-port=9866/tcp --permanent
+sudo firewall-cmd --zone=public --add-port=8040/tcp --permanent
+sudo firewall-cmd --reload
+</code></pre><ul>
+<li>On all servers <code>netstat -anl</code> or <code>netstat -aNl</code> will let you see active connections for troubleshooting</li>
+</ul>
+<h2 id="hdfs-web-ui">HDFS Web UI</h2>
+<p>see [[Multiple SSH Forwards Snippit]]</p>
+<h2 id="yarn-web-ui">YARN Web UI</h2>
+<p>see [[Multiple SSH Forwards Snippit]]</p>
 
 
-<footer class="footline">
+
+
+
+<footer class=" footline" >
 	
 </footer>
 
@@ -616,7 +664,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -632,9 +679,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -691,10 +735,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/pages/master-node-config/" title="Master Node Configuration"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/" title="ASR Cluster Wiki ALPHA"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/pages/spark/" title="Spark" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/pages/hdfs/" title="HDFS" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -704,19 +748,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1640823814"></script>
-    <script src="/js/perfect-scrollbar.min.js?1640823814"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1640823814"></script>
-    <script src="/js/jquery.sticky.js?1640823814"></script>
-    <script src="/js/featherlight.min.js?1640823814"></script>
-    <script src="/js/highlight.pack.js?1640823814"></script>
+    <script src="/js/clipboard.min.js?1640824985"></script>
+    <script src="/js/perfect-scrollbar.min.js?1640824985"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1640824985"></script>
+    <script src="/js/jquery.sticky.js?1640824985"></script>
+    <script src="/js/featherlight.min.js?1640824985"></script>
+    <script src="/js/highlight.pack.js?1640824985"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1640823814"></script>
-    <script src="/js/learn.js?1640823814"></script>
-    <script src="/js/hugo-learn.js?1640823814"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1640824985"></script>
+    <script src="/js/learn.js?1640824985"></script>
+    <script src="/js/hugo-learn.js?1640824985"></script>
     
         
-            <script src="/mermaid/mermaid.js?1640823814"></script>
+            <script src="/mermaid/mermaid.js?1640824985"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
@@ -726,4 +770,3 @@
 
   </body>
 </html>
-

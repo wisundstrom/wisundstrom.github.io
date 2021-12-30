@@ -9,23 +9,23 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Main :: ASR Cluster</title>
+    <title>SSH Forwards :: ASR Cluster</title>
 
     
-    <link href="/css/nucleus.css?1640823814" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1640823814" rel="stylesheet">
-    <link href="/css/hybrid.css?1640823814" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1640823814" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1640823814" rel="stylesheet">
-    <link href="/css/auto-complete.css?1640823814" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1640823814" rel="stylesheet">
-    <link href="/css/theme.css?1640823814" rel="stylesheet">
-    <link href="/css/tabs.css?1640823814" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1640823814" rel="stylesheet">
+    <link href="/css/nucleus.css?1640824985" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1640824985" rel="stylesheet">
+    <link href="/css/hybrid.css?1640824985" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1640824985" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1640824985" rel="stylesheet">
+    <link href="/css/auto-complete.css?1640824985" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1640824985" rel="stylesheet">
+    <link href="/css/theme.css?1640824985" rel="stylesheet">
+    <link href="/css/tabs.css?1640824985" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1640824985" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1640823814"></script>
+    <script src="/js/jquery-3.3.1.min.js?1640824985"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/">
+  <body class="" data-url="/pages/multiple-ssh-forwards-snippit/">
     <nav id="sidebar" class="">
 
 
@@ -135,14 +135,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1640823814"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1640823814"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1640824985"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1640824985"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/example.org\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1640823814"></script>
+<script type="text/javascript" src="/js/search.js?1640824985"></script>
 
     
   </div>
@@ -171,7 +171,7 @@
     
     <li data-nav-id="/pages/" title="Main" class="dd-item
         parent
-        active
+        
         
         ">
       <a href="/pages/">
@@ -280,7 +280,7 @@
  
   
     
-      <li data-nav-id="/pages/multiple-ssh-forwards-snippit/" title="SSH Forwards" class="dd-item ">
+      <li data-nav-id="/pages/multiple-ssh-forwards-snippit/" title="SSH Forwards" class="dd-item active">
         <a href="/pages/multiple-ssh-forwards-snippit/">
         SSH Forwards
         
@@ -365,7 +365,13 @@
             
           
           
-            <a href='/'>ASR Cluster Wiki ALPHA</a> > Main
+            
+            
+          
+          
+            <a href='/'>ASR Cluster Wiki ALPHA</a> > <a href='/pages/'>Main</a> > SSH Forwards
+          
+        
           
         
           
@@ -376,27 +382,7 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents">
-  <ul>
-    <li><a href="#todo">Todo:</a></li>
-    <li><a href="#linode-hadoop-guide">Linode Hadoop Guide</a></li>
-    <li><a href="#basic-cluster-info">Basic Cluster Info</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#etchosts">/etc/hosts</a></li>
-    <li><a href="#accounts">Accounts</a></li>
-    <li><a href="#ssh">SSH</a></li>
-    <li><a href="#logs">Logs</a>
-      <ul>
-        <li><a href="#networking-update-122921">Networking UPDATE 12/29/21</a></li>
-      </ul>
-    </li>
-    <li><a href="#firewall">Firewall</a></li>
-    <li><a href="#hdfs-web-ui">HDFS Web UI</a></li>
-    <li><a href="#yarn-web-ui">YARN Web UI</a></li>
-  </ul>
-</nav>
+<nav id="TableOfContents"></nav>
     </div>
 </div>
 
@@ -412,175 +398,27 @@
           
             <h1>
               
-              Main
+              SSH Forwards
             </h1>
           
 
         
 
 
-
-	<h1 id="three-node-hadoop">Three Node Hadoop</h1>
-<ul>
-<li>[[Master Node Config]]</li>
-<li>[[HDFS]]</li>
-<li>[[YARN]]</li>
-</ul>
-<h2 id="todo">Todo:</h2>
-<ul>
-<li>setup and run Yarn
-<ul>
-<li>possibly set up VLAN first and then go back to YARN, IDK</li>
-</ul>
-</li>
-<li>set up nice ssh forwarding for web apps: [[Multiple SSH Forwards Snippit]]</li>
-<li>set up a vlan:[[#Networking UPDATE 12 29 21]]</li>
-<li>Set up <a href="https://www.linode.com/docs/products/networking/cloud-firewall/">cloud firewall</a></li>
-</ul>
-<p>Next big step:</p>
-<ul>
-<li><a href="https://www.linode.com/docs/guides/install-configure-run-spark-on-top-of-hadoop-yarn-cluster/">Install Spark on top of the Yarn cluster</a></li>
-</ul>
-<p>Longer Term:</p>
-<ul>
-<li>play with optimizing memory: [[Configure Memory Allocation]]</li>
-<li>investigate/learn Linode CLI</li>
-<li>create re-usable node images</li>
-<li>Set up VPN connection to the cluster VLAN
-<ul>
-<li>probably wireguard, but idk</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="linode-hadoop-guide">Linode Hadoop Guide</h2>
-<p><a href="https://www.linode.com/docs/guides/how-to-install-and-set-up-hadoop-cluster/">This is the Linode Hadoop setup guide I am using</a></p>
-<h2 id="basic-cluster-info">Basic Cluster Info</h2>
-<p><strong>Cluster details as of 12/29/21</strong></p>
-<ul>
-<li>Hosted on <a href="https://www.linode.com">Linode</a></li>
-<li>2 Nodes, 1 Master</li>
-<li>All servers have 1 core, 3gb memory, 50g storage</li>
-<li>All servers are running CentOS 7</li>
-</ul>
-<h1 id="quick-reference">Quick Reference</h1>
-<h2 id="etchosts">/etc/hosts</h2>
-<table>
-<thead>
-<tr>
-<th>Private IP</th>
-<th>Server Name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>172.104.18.216</td>
-<td>node-master</td>
-</tr>
-<tr>
-<td>172.104.18.250</td>
-<td>node1</td>
-</tr>
-<tr>
-<td>172.104.18.234</td>
-<td>node2</td>
-</tr>
-</tbody>
-</table>
-<h2 id="accounts">Accounts</h2>
-<table>
-<thead>
-<tr>
-<th>Account</th>
-<th>Use</th>
-<th>Password</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>root</td>
-<td>root access</td>
-<td>????????????</td>
-</tr>
-<tr>
-<td>will</td>
-<td>will&rsquo;s account</td>
-<td>????????????</td>
-</tr>
-<tr>
-<td>asr_user</td>
-<td>generic test account</td>
-<td><strong>TBD</strong></td>
-</tr>
-<tr>
-<td>hadoop</td>
-<td>hadoop daemons</td>
-<td>????????????</td>
-</tr>
-</tbody>
-</table>
-<h2 id="ssh">SSH</h2>
-<ul>
-<li>SSH configs located at
-<ul>
-<li><code>/etc/ssh/sshd_config</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="logs">Logs</h2>
-<ul>
-<li>Hadoop/Yarn logs for each server can be found here:
-<ul>
-<li><code>/home/hadoop/hadoop/logs</code></li>
-<li>Default is only <code>Hadoop</code> user/group has permissions</li>
-</ul>
-</li>
-<li>DataNode and NodeManager logs are specific to <code>node1</code>, <code>node2</code>, etc.</li>
-<li>NameNode and ResourceManager logs are on the <code>node-master</code> server</li>
-</ul>
-<h3 id="networking-update-122921">Networking UPDATE 12/29/21</h3>
-<p>I think it probably makes sense to set up a vlan with the three nodes in it so that we can let them all talk to each other as much as they want.</p>
-<ul>
-<li><a href="https://www.linode.com/docs/products/networking/vlans/">Linode VLANs</a></li>
-</ul>
-<h2 id="firewall">Firewall</h2>
-<p>Leaving this in for reference</p>
-<ul>
-<li>Since</li>
-<li>node-master needs
-<ul>
-<li>port 9000 open to talk to DataNodes</li>
-<li>port 8031 open to talk to NodeManagers</li>
-</ul>
-</li>
-</ul>
-<pre tabindex="0"><code>sudo firewall-cmd --zone=public --add-port=9000/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=8031/tcp --permanent
-sudo firewall-cmd --reload
-</code></pre><ul>
-<li>node1, node2 need
-<ul>
-<li>port 9866 open to receive data from namenode</li>
-<li></li>
-</ul>
-</li>
-</ul>
-<pre tabindex="0"><code>sudo firewall-cmd --zone=public --add-port=9866/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=8040/tcp --permanent
-sudo firewall-cmd --reload
-</code></pre><ul>
-<li>On all servers <code>netstat -anl</code> or <code>netstat -aNl</code> will let you see active connections for troubleshooting</li>
-</ul>
-<h2 id="hdfs-web-ui">HDFS Web UI</h2>
-<p>see [[Multiple SSH Forwards Snippit]]</p>
-<h2 id="yarn-web-ui">YARN Web UI</h2>
-<p>see [[Multiple SSH Forwards Snippit]]</p>
+<p><strong>This is a quote from a stack exchange question that goes through how to set up ssh configs so that ssh-ing into our servers also forwards the ports for the corresponding web apps or UIs</strong></p>
+<p>For people who are forwarding multiple port through <em>the same host</em> can setup something like this in their  <code>~/.ssh/config</code>:</p>
+<pre tabindex="0"><code>Host all-port-forwards
+	Hostname 10.122.0.3
+	User username
+	LocalForward PORT_1 IP:PORT_1
+	LocalForward PORT_2 IP:PORT_2
+	LocalForward PORT_3 IP:PORT_3
+	LocalForward PORT_4 IP:PORT_4
+</code></pre><p>and it becomes a simple <code>ssh all-port-forwards</code> away.</p>
+<p>from <a href="https://stackoverflow.com/questions/29936948/ssh-l-forward-multiple-ports">stack exchange</a></p>
 
 
-
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -696,6 +534,7 @@ sudo firewall-cmd --reload
             
                 
                     
+                    
                 
                 
 
@@ -712,6 +551,9 @@ sudo firewall-cmd --reload
             
                 
                     
+                        
+                        
+                    
                 
                 
 
@@ -735,10 +577,10 @@ sudo firewall-cmd --reload
 	 
 	 
 		
-			<a class="nav nav-prev" href="/" title="ASR Cluster Wiki ALPHA"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/pages/spark/" title="Spark"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/pages/hdfs/" title="HDFS" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/pages/yarn/" title="YARN" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -748,19 +590,19 @@ sudo firewall-cmd --reload
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1640823814"></script>
-    <script src="/js/perfect-scrollbar.min.js?1640823814"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1640823814"></script>
-    <script src="/js/jquery.sticky.js?1640823814"></script>
-    <script src="/js/featherlight.min.js?1640823814"></script>
-    <script src="/js/highlight.pack.js?1640823814"></script>
+    <script src="/js/clipboard.min.js?1640824985"></script>
+    <script src="/js/perfect-scrollbar.min.js?1640824985"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1640824985"></script>
+    <script src="/js/jquery.sticky.js?1640824985"></script>
+    <script src="/js/featherlight.min.js?1640824985"></script>
+    <script src="/js/highlight.pack.js?1640824985"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1640823814"></script>
-    <script src="/js/learn.js?1640823814"></script>
-    <script src="/js/hugo-learn.js?1640823814"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1640824985"></script>
+    <script src="/js/learn.js?1640824985"></script>
+    <script src="/js/hugo-learn.js?1640824985"></script>
     
         
-            <script src="/mermaid/mermaid.js?1640823814"></script>
+            <script src="/mermaid/mermaid.js?1640824985"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
@@ -770,3 +612,4 @@ sudo firewall-cmd --reload
 
   </body>
 </html>
+
