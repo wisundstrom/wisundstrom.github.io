@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Main on ASR Cluster</title>
+    <link>http://example.org/pages/</link>
+    <description>Recent content in Main on ASR Cluster</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 29 Dec 2021 18:12:46 -0500</lastBuildDate><atom:link href="http://example.org/pages/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HDFS</title>
+      <link>http://example.org/pages/hdfs/</link>
+      <pubDate>Wed, 29 Dec 2021 18:12:46 -0500</pubDate>
+      
+      <guid>http://example.org/pages/hdfs/</guid>
+      <description>[[Linode Basic 3 Node Main]]
+Starting HDFS The following scripts can are used to stop and start the name and data-node processes on the master and the nodes.
+You must be logged in as the Hadoop user to run these scripts
+ start-dfs.sh stop-dfs.sh  You can confirm this worked by running jps on node-master, which should show NameNode and SecondaryNameNode entries:
+21922 Jps 21603 NameNode 21787 SecondaryNameNode and on node1 and node2 jps should show DataNode entries:</description>
+    </item>
+    
+    <item>
+      <title>Master Node Configuration</title>
+      <link>http://example.org/pages/master-node-config/</link>
+      <pubDate>Wed, 29 Dec 2021 18:12:46 -0500</pubDate>
+      
+      <guid>http://example.org/pages/master-node-config/</guid>
+      <description>[[Linode Basic 3 Node Main]]
+Outside Files    File Location     Hadoop Binary http://apache.cs.utah.edu/hadoop/common/current/hadoop-3.1.2.tar.gz    PATH Variables etc.    File Add lines     /home/hadoop/.profile PATH=/home/hadoop/hadoop/bin:home/hadoop/hadoop/sbin:$PATH   /home/hadoop/.bashrc export HADOOP_HOME=/home/hadoop/hadoop   /home/hadoop/.bashrc export PATH=${PATH}:${HADOOP_HOME}/bin:${HADOP_HOME}/sbin   ~/hadoop/etc/hadoop/hadoop-env.sh export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.312.b07-1.el7_9.x86_64/jre/   ~/hadoop/etc/hadoop/workers node1 \n node2    NameNode location  ~/hadoop/etc/hadoop/core-site.xml needs to be edited to include this:  &amp;lt;configuration&amp;gt; &amp;lt;property&amp;gt; &amp;lt;name&amp;gt;fs.</description>
+    </item>
+    
+    <item>
+      <title>Memory Allocation</title>
+      <link>http://example.org/pages/configure-memory-allocation/</link>
+      <pubDate>Wed, 29 Dec 2021 18:12:46 -0500</pubDate>
+      
+      <guid>http://example.org/pages/configure-memory-allocation/</guid>
+      <description>[[Linode Basic 3 Node Main]]
+This page contains text and images copy and pasted from the linode guide here: [[Linode Basic 3 Node Main#Linode Hadoop Guide]]
+ Guide Excerpt ** The Memory Allocation Properties **
+A YARN job is executed with two kind of resources:
+ An Application Master (AM) is responsible for monitoring the application and coordinating distributed executors in the cluster. Some executors that are created by the AM actually run the job.</description>
+    </item>
+    
+    <item>
+      <title>Spark</title>
+      <link>http://example.org/pages/spark/</link>
+      <pubDate>Wed, 29 Dec 2021 18:12:46 -0500</pubDate>
+      
+      <guid>http://example.org/pages/spark/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SSH Forwards</title>
+      <link>http://example.org/pages/multiple-ssh-forwards-snippit/</link>
+      <pubDate>Wed, 29 Dec 2021 18:12:46 -0500</pubDate>
+      
+      <guid>http://example.org/pages/multiple-ssh-forwards-snippit/</guid>
+      <description>This is a quote from a stack exchange question that goes through how to set up ssh configs so that ssh-ing into our servers also forwards the ports for the corresponding web apps or UIs
+For people who are forwarding multiple port through the same host can setup something like this in their ~/.ssh/config:
+Host all-port-forwards Hostname 10.122.0.3 User username LocalForward PORT_1 IP:PORT_1 LocalForward PORT_2 IP:PORT_2 LocalForward PORT_3 IP:PORT_3 LocalForward PORT_4 IP:PORT_4 and it becomes a simple ssh all-port-forwards away.</description>
+    </item>
+    
+    <item>
+      <title>YARN</title>
+      <link>http://example.org/pages/yarn/</link>
+      <pubDate>Wed, 29 Dec 2021 18:12:46 -0500</pubDate>
+      
+      <guid>http://example.org/pages/yarn/</guid>
+      <description>[[Linode Basic 3 Node Main]]
+HDFS is just a distributed filesystem, so it does not control how any tasks are actually completed in the cluster. The YARN framework is what we use to run and schedule tasks in the cluster. Similarly to HDFS, we can start and stop YARN (as the Hadoop user) with the following:
+start-yarn.sh stop-yarn.sh You can also check that this is working with jps, which should now show Resource Manager running on node-master and NodeManager running on node1 and node2</description>
+    </item>
+    
+  </channel>
+</rss>

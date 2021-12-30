@@ -1,0 +1,177 @@
+{
+  "Linode  Basic 3 Node Main": {
+    "basename": "Linode  Basic 3 Node Main",
+    "extension": "md",
+    "name": "Linode  Basic 3 Node Main.md",
+    "path": "Linode  Basic 3 Node Main.md",
+    "ctime": 1639148470927,
+    "mtime": 1640811699237,
+    "referencedBy": [
+      "Linode  Basic 3 Node Main.md",
+      "Pages/Configure Memory Allocation.md",
+      "Pages/HDFS.md",
+      "Pages/Master Node Config.md",
+      "Pages/YARN.md"
+    ]
+  },
+  "Pages/Configure Memory Allocation": {
+    "basename": "Configure Memory Allocation",
+    "extension": "md",
+    "name": "Configure Memory Allocation.md",
+    "path": "Pages/Configure Memory Allocation.md",
+    "ctime": 1639161691190,
+    "mtime": 1640799678079,
+    "referencedBy": [
+      "Linode  Basic 3 Node Main.md",
+      "Pages/Configure Memory Allocation.md"
+    ]
+  },
+  "Configure Memory Allocation": {
+    "basename": "Configure Memory Allocation",
+    "extension": "md",
+    "name": "Configure Memory Allocation.md",
+    "path": "Pages/Configure Memory Allocation.md",
+    "ctime": 1639161691190,
+    "mtime": 1640799678079,
+    "referencedBy": [
+      "Linode  Basic 3 Node Main.md",
+      "Pages/Configure Memory Allocation.md"
+    ]
+  },
+  "Pages/HDFS": {
+    "basename": "HDFS",
+    "extension": "md",
+    "name": "HDFS.md",
+    "path": "Pages/HDFS.md",
+    "ctime": 1639163311172,
+    "mtime": 1640802414367,
+    "referencedBy": [
+      "Linode  Basic 3 Node Main.md",
+      "Pages/YARN.md"
+    ]
+  },
+  "HDFS": {
+    "basename": "HDFS",
+    "extension": "md",
+    "name": "HDFS.md",
+    "path": "Pages/HDFS.md",
+    "ctime": 1639163311172,
+    "mtime": 1640802414367,
+    "referencedBy": [
+      "Linode  Basic 3 Node Main.md",
+      "Pages/YARN.md"
+    ]
+  },
+  "Pages/Master Node Config": {
+    "basename": "Master Node Config",
+    "extension": "md",
+    "name": "Master Node Config.md",
+    "path": "Pages/Master Node Config.md",
+    "ctime": 1639158750488,
+    "mtime": 1640799688071,
+    "referencedBy": [
+      "Linode  Basic 3 Node Main.md"
+    ]
+  },
+  "Master Node Config": {
+    "basename": "Master Node Config",
+    "extension": "md",
+    "name": "Master Node Config.md",
+    "path": "Pages/Master Node Config.md",
+    "ctime": 1639158750488,
+    "mtime": 1640799688071,
+    "referencedBy": [
+      "Linode  Basic 3 Node Main.md"
+    ]
+  },
+  "Pages/Multiple SSH Forwards Snippit": {
+    "basename": "Multiple SSH Forwards Snippit",
+    "extension": "md",
+    "name": "Multiple SSH Forwards Snippit.md",
+    "path": "Pages/Multiple SSH Forwards Snippit.md",
+    "ctime": 1640786870602,
+    "mtime": 1640800340208,
+    "referencedBy": [
+      "Linode  Basic 3 Node Main.md",
+      "Pages/HDFS.md"
+    ]
+  },
+  "Multiple SSH Forwards Snippit": {
+    "basename": "Multiple SSH Forwards Snippit",
+    "extension": "md",
+    "name": "Multiple SSH Forwards Snippit.md",
+    "path": "Pages/Multiple SSH Forwards Snippit.md",
+    "ctime": 1640786870602,
+    "mtime": 1640800340208,
+    "referencedBy": [
+      "Linode  Basic 3 Node Main.md",
+      "Pages/HDFS.md"
+    ]
+  },
+  "Pages/Pasted image 20211210134601.png": {
+    "basename": "Pasted image 20211210134601",
+    "extension": "png",
+    "name": "Pasted image 20211210134601.png",
+    "path": "Pages/Pasted image 20211210134601.png",
+    "ctime": 1639161961017,
+    "mtime": 1639161961019,
+    "referencedBy": [
+      "Pages/Configure Memory Allocation.md"
+    ]
+  },
+  "Pasted image 20211210134601": {
+    "basename": "Pasted image 20211210134601",
+    "extension": "png",
+    "name": "Pasted image 20211210134601.png",
+    "path": "Pages/Pasted image 20211210134601.png",
+    "ctime": 1639161961017,
+    "mtime": 1639161961019,
+    "referencedBy": [
+      "Pages/Configure Memory Allocation.md"
+    ]
+  },
+  "Pages/Spark": {
+    "basename": "Spark",
+    "extension": "md",
+    "name": "Spark.md",
+    "path": "Pages/Spark.md",
+    "ctime": 1640801870922,
+    "mtime": 1640801870922,
+    "referencedBy": [
+      "Pages/YARN.md"
+    ]
+  },
+  "Spark": {
+    "basename": "Spark",
+    "extension": "md",
+    "name": "Spark.md",
+    "path": "Pages/Spark.md",
+    "ctime": 1640801870922,
+    "mtime": 1640801870922,
+    "referencedBy": [
+      "Pages/YARN.md"
+    ]
+  },
+  "Pages/YARN": {
+    "basename": "YARN",
+    "extension": "md",
+    "name": "YARN.md",
+    "path": "Pages/YARN.md",
+    "ctime": 1639163311172,
+    "mtime": 1640802452926,
+    "referencedBy": [
+      "Linode  Basic 3 Node Main.md"
+    ]
+  },
+  "YARN": {
+    "basename": "YARN",
+    "extension": "md",
+    "name": "YARN.md",
+    "path": "Pages/YARN.md",
+    "ctime": 1639163311172,
+    "mtime": 1640802452926,
+    "referencedBy": [
+      "Linode  Basic 3 Node Main.md"
+    ]
+  }
+}
